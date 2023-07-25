@@ -32,6 +32,36 @@ export const DashboardMenu = [
 	},
 	{
 		id: uuid(),
+		title: 'Search',
+		icon: 'clipboard',
+		link: '/search'
+	},
+	{
+		id: uuid(),
+		title: 'Sorting',
+		icon: 'clipboard',
+		link: '/sorting'
+	},
+	{
+		id: uuid(),
+		title: 'Data Entry',
+		icon: 'clipboard',
+		link: '/dataentry'
+	},
+	{
+		id: uuid(),
+		title: 'Verification',
+		icon: 'clipboard',
+		link: '/verification'
+	},
+	{
+		id: uuid(),
+		title: 'Assessment',
+		icon: 'clipboard',
+		link: '/assessment'
+	},
+	{
+		id: uuid(),
 		title: 'LAYOUTS & PAGES',
 		grouptitle: true
 	},

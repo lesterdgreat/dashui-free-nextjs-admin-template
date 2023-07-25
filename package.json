@@ -1,5 +1,5 @@
 {
-  "name": "dashui-free-nextjs-admin-template",
+  "name": "sme-loan-origination",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -23,14 +23,17 @@
     "react-bootstrap": "^2.7.2",
     "react-bootstrap-icons": "^1.10.2",
     "react-copy-to-clipboard": "^5.1.0",
+    "react-data-table-component": "^7.5.3",
     "react-dom": "18.2.0",
     "react-dropzone": "^14.2.3",
     "react-feather": "^2.0.10",
     "react-responsive": "^9.0.2",
+    "react-select": "^5.7.4",
     "sass": "^1.60.0",
     "sass-loader": "^13.2.2",
     "simplebar": "^6.2.4",
     "simplebar-react": "^3.2.3",
+    "styled-components": "^6.0.5",
     "uuid": "^9.0.0"
   }
 }
