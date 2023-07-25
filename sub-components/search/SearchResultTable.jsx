@@ -5,10 +5,6 @@ const SearchResultTable = () => {
   // dummy columns
   const columns = [
     {
-      name: "No",
-      selector: (row) => row.id,
-    },
-    {
       name: "Application Number",
       selector: (row) => row.appNo,
     },
@@ -49,7 +45,6 @@ const SearchResultTable = () => {
   // Dummy Data
   const data = [
     {
-      id: 1,
       appNo: "09222209890",
       acctNo: "",
       loanType: "CONVENTIONAL ACT GOODS",
@@ -61,7 +56,6 @@ const SearchResultTable = () => {
       brn: "2021020001293",
     },
     {
-      id: 2,
       appNo: "09222209891",
       acctNo: "",
       loanType: "CONVENTIONAL ACT GOODS",
@@ -74,13 +68,15 @@ const SearchResultTable = () => {
     },
   ];
   return (
-    <Card>
-      <Card.Body>
-        <Col>
-          <DataTable columns={columns} data={data} pagination />
-        </Col>
-      </Card.Body>
-    </Card>
+    <Col xl={12} lg={12} md={12} xs={12}>
+      <Card>
+        <Card.Body>
+          <Col>
+            <DataTable columns={columns} pagination />
+          </Col>
+        </Card.Body>
+      </Card>
+    </Col>
   );
 };
 
