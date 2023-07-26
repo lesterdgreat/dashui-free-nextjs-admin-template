@@ -1,7 +1,7 @@
 import { Card, Col } from "react-bootstrap";
 import DataTable from "react-data-table-component";
 
-const SearchResultTable = () => {
+const SearchResultTable = (props) => {
   // dummy columns
   const columns = [
     {
@@ -42,37 +42,12 @@ const SearchResultTable = () => {
     },
   ];
 
-  // Dummy Data
-  const data = [
-    {
-      appNo: "09222209890",
-      acctNo: "",
-      loanType: "CONVENTIONAL ACT GOODS",
-      status: "UNDER PROCESSING",
-      queue: "DATA ENTRY",
-      assignTo: "",
-      cifNo: "911000195",
-      compName: "JOLLIBEEMEH",
-      brn: "2021020001293",
-    },
-    {
-      appNo: "09222209891",
-      acctNo: "",
-      loanType: "CONVENTIONAL ACT GOODS",
-      status: "UNDER PROCESSING",
-      queue: "DATA ENTRY",
-      assignTo: "",
-      cifNo: "911000196",
-      compName: "MCDOGA",
-      brn: "2021020001291",
-    },
-  ];
   return (
     <Col xl={12} lg={12} md={12} xs={12}>
       <Card>
         <Card.Body>
           <Col>
-            <DataTable columns={columns} pagination />
+            <DataTable columns={columns} data={props.data} pagination />
           </Col>
         </Card.Body>
       </Card>
