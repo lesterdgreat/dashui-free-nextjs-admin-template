@@ -1,3 +1,42 @@
+import { Button, ButtonGroup } from "react-bootstrap";
+import { Delete, Edit, Eye, ShoppingBag } from "react-feather";
+
+export const TBL_SORTING = [
+  {
+    name: "No",
+    selector: (row) => row.no,
+  },
+  {
+    name: "File Name",
+    selector: (row) => row.fileName,
+  },
+  {
+    name: "Date",
+    selector: (row) => row.date,
+  },
+  {
+    name: "Actions",
+    cell: (row) => (
+      <>
+        <ButtonGroup aria-label="action">
+          <Button size="sm" variant="secondary">
+            <Eye size="12px" />
+          </Button>
+          <Button size="sm" variant="primary">
+            <Edit size="12px" />
+          </Button>
+          <Button size="sm" variant="danger">
+            <Delete size="12px" />
+          </Button>
+        </ButtonGroup>
+      </>
+    ),
+    ignoreRowClick: true,
+    allowOverflow: true,
+    button: true,
+  },
+];
+
 export const TBL_SEARCH = [
   {
     name: "Application No",

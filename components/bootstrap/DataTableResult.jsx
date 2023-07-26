@@ -1,7 +1,7 @@
 import { Card, Col } from "react-bootstrap";
 import DataTable from "react-data-table-component";
 
-const SearchResultTable = (props) => {
+const DataTableResult = (props) => {
   const tableCustomStyles = {
     headRow: {
       style: {
@@ -42,4 +42,4 @@ const SearchResultTable = (props) => {
   );
 };
 
-export default SearchResultTable;
+export default DataTableResult;

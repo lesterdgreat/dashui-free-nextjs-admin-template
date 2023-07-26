@@ -1,11 +1,11 @@
 import { Container } from "react-bootstrap";
-import { PageHeading } from "widgets";
+import SortingFormCard from "sub-components/sorting/SortingFormCard";
 
 const SortingScreen = () => {
   return (
     <Container fluid className="p-6">
-      {/* Page Heading */}
-      <PageHeading heading="Sorting" />
+      {/* Sorting Form Card */}
+      <SortingFormCard />
     </Container>
   );
 };

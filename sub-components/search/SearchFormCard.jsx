@@ -2,7 +2,7 @@ import { TBL_SEARCH } from "components/TableConstants";
 import { Fragment } from "react";
 import { Card, Col, Row, Form, Button } from "react-bootstrap";
 import Select2 from "components/bootstrap/Select2";
-import SearchResultTable from "sub-components/search/SearchResultTable";
+import DataTableResult from "components/bootstrap/DataTableResult";
 
 const SearchFormCard = () => {
   // dummy loan type
@@ -54,7 +54,7 @@ const SearchFormCard = () => {
     <Fragment>
       <Col xl={12} lg={12} md={12} xs={12} className="mb-6">
         <Card>
-          <Card.Header as="h4" className="text-white card-header">
+          <Card.Header as="h5" className="text-white card-header">
             Enquiry
           </Card.Header>
           <Card.Body>
@@ -114,8 +114,8 @@ const SearchFormCard = () => {
           </Card.Body>
         </Card>
       </Col>
-      {/* Search Result Table */}
-      <SearchResultTable columns={TBL_SEARCH} data={data} />
+      {/* Data Table Result */}
+      <DataTableResult columns={TBL_SEARCH} data={data} />
     </Fragment>
   );
 };
