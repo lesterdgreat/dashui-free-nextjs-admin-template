@@ -1,15 +1,11 @@
 import { Button, ButtonGroup } from "react-bootstrap";
 import { Delete, Edit, Eye } from "react-feather";
 
-// Sorting Screen
-const viewPDFHandler = (e, id) => {
+// Sorting Screen & Functionality
+const viewPDFHandler = (e, url) => {
   e.preventDefault();
   let params = `toolbar=no,menubar=no,width=0,height=0,left=-1000,top=-1000`;
-  window.open(
-    "https://www.africau.edu/images/default/sample.pdf",
-    "_blank",
-    params
-  );
+  window.open(url, "_blank", params);
 };
 
 export const TBL_SORTING = [
@@ -35,7 +31,7 @@ export const TBL_SORTING = [
           <Button
             size="sm"
             id={row.no}
-            onClick={(e) => viewPDFHandler(e, row.no)}
+            onClick={(e) => viewPDFHandler(e, row.url)}
             variant="secondary"
           >
             <Eye size="12px" />
@@ -55,6 +51,7 @@ export const TBL_SORTING = [
   },
 ];
 
+// Search Table & Functionality
 export const TBL_SEARCH = [
   {
     name: "Application No",
