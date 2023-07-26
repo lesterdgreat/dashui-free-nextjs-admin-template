@@ -1,9 +1,21 @@
 import { Button, ButtonGroup } from "react-bootstrap";
-import { Delete, Edit, Eye, ShoppingBag } from "react-feather";
+import { Delete, Edit, Eye } from "react-feather";
+
+// Sorting Screen
+const viewPDFHandler = (e, id) => {
+  e.preventDefault();
+  let params = `toolbar=no,menubar=no,width=0,height=0,left=-1000,top=-1000`;
+  window.open(
+    "https://www.africau.edu/images/default/sample.pdf",
+    "_blank",
+    params
+  );
+};
 
 export const TBL_SORTING = [
   {
     name: "No",
+    width: "60px",
     selector: (row) => row.no,
   },
   {
@@ -12,6 +24,7 @@ export const TBL_SORTING = [
   },
   {
     name: "Date",
+    width: "300px",
     selector: (row) => row.date,
   },
   {
@@ -19,13 +32,18 @@ export const TBL_SORTING = [
     cell: (row) => (
       <>
         <ButtonGroup aria-label="action">
-          <Button size="sm" variant="secondary">
+          <Button
+            size="sm"
+            id={row.no}
+            onClick={(e) => viewPDFHandler(e, row.no)}
+            variant="secondary"
+          >
             <Eye size="12px" />
           </Button>
-          <Button size="sm" variant="primary">
+          <Button size="sm" id={row.no} variant="primary">
             <Edit size="12px" />
           </Button>
-          <Button size="sm" variant="danger">
+          <Button size="sm" id={row.no} variant="danger">
             <Delete size="12px" />
           </Button>
         </ButtonGroup>

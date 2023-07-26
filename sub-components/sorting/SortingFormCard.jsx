@@ -9,13 +9,21 @@ const SortingFormCard = () => {
       no: 1,
       fileName: "SME_00011837124.PDF",
       date: "2023/07/26",
-      actions: "",
     },
     {
       no: 2,
-      fileName: "SME_00011837124.PDF",
+      fileName: "SME_00011831911.PDF",
       date: "2023/07/26",
-      actions: "",
+    },
+    {
+      no: 3,
+      fileName: "SME_00011890191.PDF",
+      date: "2023/07/25",
+    },
+    {
+      no: 4,
+      fileName: "SME_00011890192.PDF",
+      date: "2023/08/21",
     },
   ];
 

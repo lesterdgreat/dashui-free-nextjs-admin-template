@@ -58,59 +58,75 @@ const SearchFormCard = () => {
             Enquiry
           </Card.Header>
           <Card.Body>
-            <Row>
-              <Col xl={6} lg={6} md={12} xs={12}>
-                <Form.Group row className="mb-1">
-                  <Form.Label htmlFor="appNo">Application No</Form.Label>
-                  <Form.Control size="sm" type="text" id="appNo" name="appNo" />
-                </Form.Group>
-                <Form.Group className="mb-1">
-                  <Form.Label htmlFor="acctNo">Account No</Form.Label>
-                  <Form.Control
-                    size="sm"
-                    type="text"
-                    id="acctNo"
-                    name="acctNo"
-                  />
-                </Form.Group>
-                <Form.Group className="mb-1">
-                  <Select2 name="loan" options={loanType} label="Loan Type" />
-                </Form.Group>
-                <Form.Group className="mb-1">
-                  <Select2 name="status" options={statusType} label="Status" />
-                </Form.Group>
-              </Col>
-              <Col xl={6} lg={6} md={12} xs={12}>
-                <Form.Group className="mb-1">
-                  <Form.Label htmlFor="cifNo">CIF No</Form.Label>
-                  <Form.Control size="sm" type="text" id="cifNo" name="cifNo" />
-                </Form.Group>
-                <Form.Group className="mb-1">
-                  <Form.Label htmlFor="compName">Company Name</Form.Label>
-                  <Form.Control
-                    size="sm"
-                    type="text"
-                    id="compName"
-                    name="compName"
-                  />
-                </Form.Group>
-                <Form.Group className="mb-1">
-                  <Form.Label htmlFor="brn">BRN</Form.Label>
-                  <Form.Control size="sm" type="text" id="brn" name="brn" />
-                </Form.Group>
-                <Form.Group className="mb-1">
-                  <Select2 name="queue" options={queueType} label="Queue" />
-                </Form.Group>
-              </Col>
-            </Row>
-            <div className="text-center mt-2">
-              <Button variant="primary" className="btn-primary me-1">
-                Search
-              </Button>
-              <Button variant="secondary" className="me-1">
-                Clear
-              </Button>
-            </div>
+            <Form>
+              <Row>
+                <Col xl={6} lg={6} md={12} xs={12}>
+                  <Form.Group row className="mb-1">
+                    <Form.Label htmlFor="appNo">Application No</Form.Label>
+                    <Form.Control
+                      size="sm"
+                      type="text"
+                      id="appNo"
+                      name="appNo"
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-1">
+                    <Form.Label htmlFor="acctNo">Account No</Form.Label>
+                    <Form.Control
+                      size="sm"
+                      type="text"
+                      id="acctNo"
+                      name="acctNo"
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-1">
+                    <Select2 name="loan" options={loanType} label="Loan Type" />
+                  </Form.Group>
+                  <Form.Group className="mb-1">
+                    <Select2
+                      name="status"
+                      options={statusType}
+                      label="Status"
+                    />
+                  </Form.Group>
+                </Col>
+                <Col xl={6} lg={6} md={12} xs={12}>
+                  <Form.Group className="mb-1">
+                    <Form.Label htmlFor="cifNo">CIF No</Form.Label>
+                    <Form.Control
+                      size="sm"
+                      type="text"
+                      id="cifNo"
+                      name="cifNo"
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-1">
+                    <Form.Label htmlFor="compName">Company Name</Form.Label>
+                    <Form.Control
+                      size="sm"
+                      type="text"
+                      id="compName"
+                      name="compName"
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-1">
+                    <Form.Label htmlFor="brn">BRN</Form.Label>
+                    <Form.Control size="sm" type="text" id="brn" name="brn" />
+                  </Form.Group>
+                  <Form.Group className="mb-1">
+                    <Select2 name="queue" options={queueType} label="Queue" />
+                  </Form.Group>
+                </Col>
+              </Row>
+              <div className="text-center mt-2">
+                <Button variant="primary" className="btn-primary me-1">
+                  Search
+                </Button>
+                <Button variant="secondary" className="me-1">
+                  Clear
+                </Button>
+              </div>
+            </Form>
           </Card.Body>
         </Card>
       </Col>
