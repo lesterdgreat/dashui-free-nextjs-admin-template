@@ -2,52 +2,39 @@ import { Card, Col } from "react-bootstrap";
 import DataTable from "react-data-table-component";
 
 const SearchResultTable = (props) => {
-  // dummy columns
-  const columns = [
-    {
-      name: "Application Number",
-      selector: (row) => row.appNo,
+  const tableCustomStyles = {
+    headRow: {
+      style: {
+        color: "#FFFFFF",
+        backgroundColor: "#FFA500",
+        fontSize: "13px",
+      },
     },
-    {
-      name: "Account Number",
-      selector: (row) => row.acctNo,
+    headCells: {
+      style: {
+        paddingLeft: "8px",
+        paddingRight: "8px",
+      },
     },
-    {
-      name: "Loan Type",
-      selector: (row) => row.loanType,
+    cells: {
+      style: {
+        paddingLeft: "8px",
+        paddingRight: "8px",
+      },
     },
-    {
-      name: "Status",
-      selector: (row) => row.status,
-    },
-    {
-      name: "Queue",
-      selector: (row) => row.queue,
-    },
-    {
-      name: "Assign To",
-      selector: (row) => row.assignTo,
-    },
-    {
-      name: "CIF No",
-      selector: (row) => row.cifNo,
-    },
-    {
-      name: "Company Name",
-      selector: (row) => row.compName,
-    },
-    {
-      name: "New BRN",
-      selector: (row) => row.brn,
-    },
-  ];
+  };
 
   return (
     <Col xl={12} lg={12} md={12} xs={12}>
       <Card>
         <Card.Body>
           <Col>
-            <DataTable columns={columns} data={props.data} pagination />
+            <DataTable
+              columns={props.columns}
+              customStyles={tableCustomStyles}
+              data={props.data}
+              pagination
+            />
           </Col>
         </Card.Body>
       </Card>
