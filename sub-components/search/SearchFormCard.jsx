@@ -1,23 +1,28 @@
-import { TBL_SEARCH } from "components/TableConstants";
 import { Fragment } from "react";
 import { Card, Col, Row, Form, Button } from "react-bootstrap";
 import Select2 from "components/bootstrap/Select2";
-import DataTableResult from "components/bootstrap/DataTableResult";
+import SearchTable from "./SearchTable";
 
 const SearchFormCard = () => {
-  // dummy loan type
+  {
+    /** dummy loan type */
+  }
   const loanType = [
     { value: "SME", label: "SME" },
     { value: "BIZ", label: "Business Card" },
   ];
 
-  // dummy status type
+  {
+    /** dummy status type */
+  }
   const statusType = [
     { value: "ACT", label: "Active" },
     { value: "INA", label: "Inactive" },
   ];
 
-  // dummy queue type
+  {
+    /** dummy queue type */
+  }
   const queueType = [
     { value: "DE", label: "Data Entry" },
     { value: "VE", label: "Verification" },
@@ -126,12 +131,12 @@ const SearchFormCard = () => {
                   Clear
                 </Button>
               </div>
+              {/* Search Table */}
+              <SearchTable data={data} />
             </Form>
           </Card.Body>
         </Card>
       </Col>
-      {/* Data Table Result */}
-      <DataTableResult columns={TBL_SEARCH} data={data} />
     </Fragment>
   );
 };

@@ -28,14 +28,12 @@ const DataTableResult = (props) => {
     <Col xl={12} lg={12} md={12} xs={12}>
       <Card>
         <Card.Body>
-          <Col>
-            <DataTable
-              columns={props.columns}
-              customStyles={tableCustomStyles}
-              data={props.data}
-              pagination
-            />
-          </Col>
+          <DataTable
+            columns={props.columns}
+            customStyles={tableCustomStyles}
+            data={props.data}
+            pagination
+          />
         </Card.Body>
       </Card>
     </Col>
