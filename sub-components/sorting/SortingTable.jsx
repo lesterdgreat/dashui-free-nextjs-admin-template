@@ -3,11 +3,12 @@ import { Button, ButtonGroup, Card, Col } from "react-bootstrap";
 import { Delete, Edit, Eye } from "react-feather";
 import DataTableResult from "components/bootstrap/DataTableResult";
 import { Fragment, useCallback, useEffect, useState } from "react";
-import AlertCustom from "components/bootstrap/AlertCustom";
+import CustomAlert from "components/bootstrap/CustomAlert";
 
 const SortingTable = (props) => {
-  const [show, setShow] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
+  const [isCreateSuccess, setIsCreateSuccess] = useState(false);
+  const [isDeleteSuccess, setIsDeleteSuccess] = useState(false);
+  const [message, setMessage] = useState("");
   const [appNo, setAppNo] = useState("");
 
   {
@@ -22,34 +23,51 @@ const SortingTable = (props) => {
   {
     /** View PDF by URL */
   }
-  const viewPDFHandler = (e, row) => {
+  const viewApplication = (e, row) => {
     e.preventDefault();
-    let params = `toolbar=no,menubar=no,width=0,height=0,left=-1000,top=-1000`;
+    // Resize to make pdf viewer in center
+    const y = window.top.outerHeight / 2 + window.top.screenY - 100 / 2;
+    const x = window.top.outerWidth / 2 + window.top.screenX - 200 / 2;
+    let params = `toolbar=no, location=no, directories=no, status=no, menubar=no, 
+    scrollbars=no, resizable=no,copyhistory=no,width=${
+      y + 300
+    },height=${x},top=${y}, 
+    left=${x - 200}`;
     window.open(row.url, "_blank", params);
   };
 
   {
     /** Create Application */
   }
-  const createApplication = useCallback(
-    async (e, row) => {
-      if (isSuccess) return;
-      // update state
-      setIsSuccess(true);
-      // send the actual request
-      // await API.sendRequest()
-      // once the request is sent, update state again
-      // setIsSuccess(false);
-      setAppNo(randomAppNo());
-    },
-  );
+  const createApplication = useCallback(async (e, row) => {
+    console.log("create application " + isCreateSuccess);
+    if (isCreateSuccess) return;
+    // send the actual request
+    // await API.sendRequest()
+    setAppNo(randomAppNo());
+    setMessage("Successfully created! Application number " + appNo);
+    setIsCreateSuccess(true);
+  });
+
+  const deleteApplication = useCallback(async (e, row) => {
+    if (isDeleteSuccess) return;
+    // send the actual request
+    // await API.sendRequest()
+    setMessage("Successfully deleted record");
+    setIsDeleteSuccess(true);
+  });
 
   useEffect(() => {
-    console.log('is success?' + isSuccess);
-    if (isSuccess) {
+    if (isCreateSuccess) {
       const timer = setTimeout(() => {
-        setIsSuccess(false);
-      }, 3000);
+        setIsCreateSuccess(false);
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+    if (isDeleteSuccess) {
+      const timer = setTimeout(() => {
+        setIsDeleteSuccess(false);
+      }, 1000);
       return () => clearTimeout(timer);
     }
   });
@@ -80,7 +98,7 @@ const SortingTable = (props) => {
             <Button
               size="sm"
               id={row.no}
-              onClick={(e) => viewPDFHandler(e, row)}
+              onClick={(e) => viewApplication(e, row)}
               variant="secondary"
             >
               <Eye size="12px" />
@@ -93,7 +111,12 @@ const SortingTable = (props) => {
             >
               <Edit size="12px" />
             </Button>
-            <Button size="sm" id={row.no} variant="danger">
+            <Button
+              size="sm"
+              id={row.no}
+              onClick={(e) => deleteApplication(e, row)}
+              variant="danger"
+            >
               <Delete size="12px" />
             </Button>
           </ButtonGroup>
@@ -107,11 +130,8 @@ const SortingTable = (props) => {
 
   return (
     <Fragment>
-      <AlertCustom
-        variant="success"
-        message={"Successfully created! Application number " + appNo}
-        show={isSuccess}
-      />
+      <CustomAlert variant="success" message={message} show={isCreateSuccess} />
+      <CustomAlert variant="danger" message={message} show={isDeleteSuccess} />
       <Col>
         <Card>
           <Card.Header as="h5" className="text-white card-header">
